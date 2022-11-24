@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C7BCEC61-A7ED-4412-98CD-580F98978C19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{6406BFBB-8B2C-4A8B-985E-ECE0D2A1F31A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Organo.Auth", "src\services\organo.identidade\Organo.Auth.csproj", "{265E76AE-E6BD-47C2-9D3D-1139E20F54FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{265E76AE-E6BD-47C2-9D3D-1139E20F54FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{265E76AE-E6BD-47C2-9D3D-1139E20F54FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{265E76AE-E6BD-47C2-9D3D-1139E20F54FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{265E76AE-E6BD-47C2-9D3D-1139E20F54FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6406BFBB-8B2C-4A8B-985E-ECE0D2A1F31A} = {C7BCEC61-A7ED-4412-98CD-580F98978C19}
+		{265E76AE-E6BD-47C2-9D3D-1139E20F54FC} = {6406BFBB-8B2C-4A8B-985E-ECE0D2A1F31A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {16C1A030-2399-447C-8DAA-E242FAA6CB9F}
+	EndGlobalSection
+EndGlobal
