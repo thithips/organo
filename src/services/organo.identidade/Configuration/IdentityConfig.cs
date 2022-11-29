@@ -14,7 +14,7 @@ namespace Organo.Auth.Configuration
         {
             services.AddDefaultIdentity<IdentityUser>()
                 .AddDefaultTokenProviders();
-            //.AddRoles<IdentityRole>()
+            //.AddRoles<IdentityRole>()  
              
             // Configuração de claims
             services.AddAuthorization(options =>
