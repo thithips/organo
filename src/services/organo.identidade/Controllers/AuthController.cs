@@ -42,11 +42,20 @@ namespace organo.identidade.Controllers
             return BadRequest();
         }
 
-        
+        [Authorize(Policy = "admin")]
         [HttpGet]
         public string Teste()
         {
             return "autorizado";
+        }
+
+        [HttpGet("teste")]
+        public async Task<IActionResult> Testes()
+        {
+            var userTeste = await _userManager.FindByIdAsync("57b1545a-9040-4263-8d53-bafb82eae6b8");
+            var addClaim = await _userManager.AddClaimAsync(userTeste, new Claim("adm", "del"));
+            var claimsTeste = await _userManager.GetUsersForClaimAsync(new Claim("adm", "del"));
+            return Ok();
         }
 
         [HttpPost("new-account")]
@@ -71,7 +80,17 @@ namespace organo.identidade.Controllers
                 return Ok(await GetJwt(identityUser.Email));
             }
 
-            return BadRequest();
+            string error = "";
+            for (int i = 0; i < result.Errors.Count(); i++)
+            {
+                if (i == result.Errors.Count() - 1)
+                    error += result.Errors.ToList()[i].Description;
+
+                else
+                    error += result.Errors.ToList()[i].Description + " - ";
+            }
+
+            return BadRequest(error);
         }
 
         private async Task<UserLoginResponse> GetJwt(string email)
