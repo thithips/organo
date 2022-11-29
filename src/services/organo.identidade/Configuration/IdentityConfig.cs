@@ -12,19 +12,19 @@ namespace Organo.Auth.Configuration
     {
         public static IServiceCollection AddIdentityConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
-
             services.AddDefaultIdentity<IdentityUser>()
-                //.AddRoles<IdentityRole>()
                 .AddDefaultTokenProviders();
+            //.AddRoles<IdentityRole>()
 
-           /* services.AddAuthorization(options =>
+            // Configuração de claims
+            services.AddAuthorization(options =>
             {
                 options.AddPolicy("admin", policy => policy.RequireClaim("adm", "del"));
-            });*/
+            });
 
-            services.AddIdentityCore<IdentityUser>(options => { });
             services.AddScoped<IUserStore<IdentityUser>, IdentityUserRepository>();
 
+            //
             var appSettingsSection = configuration.GetSection("SecretSettings");
             services.Configure<SecretSettings>(appSettingsSection);
             var appSettings = appSettingsSection.Get<SecretSettings>();
